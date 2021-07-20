@@ -249,6 +249,7 @@ impl<B: AsRef<[u8]>> UnparsedPublicKey<B> {
 pub fn agree_ephemeral<B: AsRef<[u8]>, R>(
     my_private_key: EphemeralPrivateKey,
     peer_public_key: &UnparsedPublicKey<B>,
+    _unused: (),
     kdf: impl FnOnce(&[u8]) -> R,
 ) -> Result<R, error::Unspecified> {
     let peer_public_key = UnparsedPublicKey {
